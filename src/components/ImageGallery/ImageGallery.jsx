@@ -15,25 +15,32 @@ export default class ImageGallery extends Component {
 
         if (prevQuery !== currentQuery) {
             // this.setState({images: null});
-            this.setState({loading:true})
+            this.setState({ loading: true })
 
             PixabayServices.getImages(currentQuery)
-            .then(result => this.setState({images: result}))
-            .finally(() => this.setState({loading:false}))
+                .then(result => this.setState({ images: result.data.hits }))
+                .catch(error => console.log('ERROR', error))
+                .finally(() => this.setState({ loading: false }))
         }
     }
 
     render() {
         const items = this.state.images;
+        console.log('ITEMS IN GALLERY', items)
         return (
             <ul>
                 {items && items.length > 0 ?
                     (
                         items.map(
                             item => {
+                                const { id, previewURL, largeImageURL, tags } = item
                                 return (
                                     <ImageGalleryItem
-                                        item={item} />
+                                        key={id}
+                                        previewURL={previewURL}
+                                        largeImageURL={largeImageURL}
+                                        tags={tags}
+                                    />
                                 )
                             }
                         )
