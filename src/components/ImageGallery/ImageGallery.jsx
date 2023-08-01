@@ -3,6 +3,7 @@ import { Component } from "react";
 import PixabayServices from "services/pixabay-services";
 
 import ImageGalleryItem from "./ImageGalleryItem/ImageGalleryItem";
+import Button from "components/Button/Button";
 
 export default class ImageGallery extends Component {
     state = {
@@ -24,30 +25,39 @@ export default class ImageGallery extends Component {
         }
     }
 
+    onLoadMore() {
+        
+    }
+
     render() {
         const items = this.state.images;
         console.log('ITEMS IN GALLERY', items)
         return (
-            <ul>
+            <>
                 {items && items.length > 0 ?
                     (
-                        items.map(
-                            item => {
-                                const { id, previewURL, largeImageURL, tags } = item
-                                return (
-                                    <ImageGalleryItem
-                                        key={id}
-                                        previewURL={previewURL}
-                                        largeImageURL={largeImageURL}
-                                        tags={tags}
-                                    />
-                                )
-                            }
-                        )
+                        <>
+                            <ul>
+                                {items.map(
+                                    item => {
+                                        const { id, previewURL, largeImageURL, tags } = item
+                                        return (
+                                            <ImageGalleryItem
+                                                key={id}
+                                                previewURL={previewURL}
+                                                largeImageURL={largeImageURL}
+                                                tags={tags}
+                                            />
+                                        )
+                                    }
+                                )}
+                            </ul>
+                            <Button />
+                        </>
                     )
                     : "Empty gallery"
                 }
-            </ul>
+            </>
         )
     }
 }
