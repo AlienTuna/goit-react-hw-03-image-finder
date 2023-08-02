@@ -1,8 +1,7 @@
 
-export default function ImageGalleryItem({ previewURL, largeImageURL, tags }) {
-    // const {id, previewURL, largeImageURL, tags} = item
+export default function ImageGalleryItem({ previewURL, largeImageURL, tags, onClick }) {
     return (
-        <li>
+        <li onClick={onClick}>
             <img src={previewURL} alt={tags} large={largeImageURL} />
         </li>
     )

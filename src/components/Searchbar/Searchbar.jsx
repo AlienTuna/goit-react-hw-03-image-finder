@@ -14,7 +14,7 @@ export default class Searchbar extends Component {
         e.preventDefault();
         const txt = this.state.txt.trim();
         if(!txt || txt === '') {
-            toast('Insert search query')
+            toast.warn('Insert search query')
             return
         }
 

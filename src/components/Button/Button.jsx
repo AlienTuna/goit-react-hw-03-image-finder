@@ -1,3 +1,9 @@
-export default function Button() {
-    <button type="button" class="Button_Button__HOrbw">Load more</button>
+export default function Button({ onClick }) {
+    return (
+        <button type="button"
+            onClick={onClick}
+        >
+            Load more
+        </button>
+    )
 }

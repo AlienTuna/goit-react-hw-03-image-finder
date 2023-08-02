@@ -21,3 +21,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 2;
+}
+img {
+  display: block;
+}
+.container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
