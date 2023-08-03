@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
+import Loader  from "./Loader/Loader";
 
 export class App extends Component {
   state = {
@@ -28,6 +29,7 @@ export class App extends Component {
           position="top-center"
           theme="dark"
         />
+        <Loader />
       </div>
     );
   }

@@ -9,29 +9,34 @@ export default class ImageGallery extends Component {
     state = {
         images: null,
         page: 1,
-        loading: true
+        status: 'idle'
     }
 
     componentDidUpdate(prevProps, prevState) {
         const prevQuery = prevProps.searchQuery;
         const currentQuery = this.props.searchQuery;
         const prevPage = prevState.page;
-        const {images, page} = this.state;
+        const { images, page } = this.state;
 
         if (prevQuery !== currentQuery) {
             // this.setState({images: null});
-            this.setState({ loading: true, images: null })
+            this.setState({ status: 'loading', images: null })
 
             PixabayServices.getImages(currentQuery, page)
-                .then(result => this.setState({ images: result.data.hits }))
-                .catch(error => console.log('ERROR', error))
-                .finally(() => this.setState({ loading: false }))
+                .then(result => this.setState({
+                    images: result.data.hits,
+                    status: 'resolved'
+                }))
+                .catch(error => {
+                    this.setState({ status: 'error' })
+                    console.log('ERROR', error)
+                })
         }
         else if (page > prevPage) {
             PixabayServices.getImages(currentQuery, page)
-            .then(result => this.setState({ images: [...images, ...result.data.hits] }))
-            .catch(error => console.log('ERROR', error))
-            .finally(() => this.setState({ loading: false }))
+                .then(result => this.setState({ images: [...images, ...result.data.hits] }))
+                .catch(error => console.log('ERROR', error))
+                .finally(() => this.setState({ loading: false }))
         }
     }
 
@@ -46,7 +51,7 @@ export default class ImageGallery extends Component {
         const items = this.state.images;
         return (
             <>
-                {items && items.length > 0 ?
+                {(items && items.length) &&
                     (
                         <>
                             <ul>
@@ -64,10 +69,10 @@ export default class ImageGallery extends Component {
                                     }
                                 )}
                             </ul>
-                            <Button onClick={this.loadMore}/>
+                            <Button onClick={this.loadMore} />
                         </>
                     )
-                    : "Empty gallery"
+                    // : "Empty gallery"
                 }
             </>
         )
