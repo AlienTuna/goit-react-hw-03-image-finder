@@ -40,11 +40,11 @@ export default class ImageGallery extends Component {
                     const loadMoreNumber = (totalHits / 12 / page) >= 1;
 
                     if (totalHits < 1) {
-                        toast.warn('Sorry, we found nothing. Try another query!')
+                        toast.warn('Nothing was found. Try another query!')
                         this.setState({ status: 'error' })
                     }
                     else {
-                        toast.done(`We found ${totalHits} images`)
+                        toast.success(`We found ${totalHits} images`)
                         this.setState({
                             images: result.data.hits,
                             status: 'resolved',
