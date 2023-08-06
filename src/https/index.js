@@ -7,7 +7,7 @@ const api = axios.create({
     baseURL: BASE_URL,
     params: {
         key: API_KEY,
-        perPage: 12
+        per_page: 12,
     },
 })
 

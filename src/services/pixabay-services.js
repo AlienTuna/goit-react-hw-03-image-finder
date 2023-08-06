@@ -19,7 +19,7 @@ export default class PixabayServices {
                 q: query,
                 page,
                 // image_type: 'photo',
-                // orientation: 'horizontal'
+                orientation: 'horizontal'
             }
         })
     }

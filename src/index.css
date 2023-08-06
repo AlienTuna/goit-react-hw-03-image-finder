@@ -14,10 +14,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
   background-color: var(--bg-main-color);
-  color: var(--txt-main-color)
+  color: var(--txt-main-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+ul {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+img {
+  display: block;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+.container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
