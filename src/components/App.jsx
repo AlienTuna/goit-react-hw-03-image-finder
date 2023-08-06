@@ -4,11 +4,25 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Searchbar from "./Searchbar/Searchbar";
 import ImageGallery from "./ImageGallery/ImageGallery";
-import Loader  from "./Loader/Loader";
+// import Loader from "./Loader/Loader";
 
 export class App extends Component {
   state = {
     searchQuery: '',
+    // images: null,
+    // page: 1,
+    // status: 'idle'
+  }
+
+  /* state-machine:
+      ** idle
+      ** loading
+      ** resolved
+      ** error
+  */
+
+  componentDidMount() {
+    this.setState({searchQuery: ''})
   }
 
   handleFormSubmit = query => {
@@ -22,14 +36,13 @@ export class App extends Component {
         <Searchbar
           onSubmit={this.handleFormSubmit}
         />
-          <ImageGallery
-            searchQuery={searchQuery}
-          />
+        <ImageGallery
+          searchQuery={searchQuery}
+        />
         <ToastContainer
           position="top-center"
           theme="dark"
         />
-        <Loader />
       </div>
     );
   }

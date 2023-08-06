@@ -14,7 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   
   background-color: var(--bg-main-color);
-  color: var(--txt-main-color)
+  color: var(--txt-main-color);
 }
 
 code {
@@ -32,10 +32,12 @@ ul {
 
 *, *::before, *::after {
   box-sizing: border-box;
-  border-radius: 2;
+  border-radius: 2px;
 }
 img {
   display: block;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
 .container {
   text-align: center;

@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
 
+import css from './Searchbar.module.css';
+
 export default class Searchbar extends Component {
     state = {
         txt: ''
@@ -14,7 +16,7 @@ export default class Searchbar extends Component {
         e.preventDefault();
         const txt = this.state.txt.trim();
         if(!txt || txt === '') {
-            toast.warn('Insert search query')
+            toast.warn('Insert some text please')
             return
         }
 
@@ -24,15 +26,17 @@ export default class Searchbar extends Component {
     render() {
         const { txt } = this.state;
         return (
-            <header>
+            <header className={css["SearchForm-container"]}>
                 <form
-                    onSubmit={this.handleSubmit}>
-                    <button type="submit">
+                    onSubmit={this.handleSubmit}
+                    className={css.SearchForm}>
+                    <button type="submit" className={css["SearchForm-button"]}>
                         {/* <span class="button-label">Search</span> */}
-                        <ImSearch />
+                        <ImSearch className={css["SearchForm-button-label"]}/>
                     </button>
 
                     <input
+                        className={css["SearchForm-input"]}
                         type="text"
                         autoComplete="off"
                         autoFocus

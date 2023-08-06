@@ -18,7 +18,7 @@ export default class PixabayServices {
             params: {
                 q: query,
                 page,
-                image_type: 'photo',
+                // image_type: 'photo',
                 orientation: 'horizontal'
             }
         })
