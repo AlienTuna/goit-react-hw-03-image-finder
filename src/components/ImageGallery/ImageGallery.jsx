@@ -33,8 +33,7 @@ export default class ImageGallery extends Component {
         const { images, page } = this.state;
 
         if (prevQuery !== currentQuery) {
-            // this.setState({images: null});
-            this.setState({ status: 'loading', images: null })
+            this.setState({ status: 'loading'})
 
             PixabayServices.getImages(currentQuery, page)
                 .then(result => {

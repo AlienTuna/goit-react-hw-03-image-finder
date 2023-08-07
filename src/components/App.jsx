@@ -9,22 +9,8 @@ import ImageGallery from "./ImageGallery/ImageGallery";
 export class App extends Component {
   state = {
     searchQuery: '',
-    // images: null,
-    // page: 1,
-    // status: 'idle'
   }
-
-  /* state-machine:
-      ** idle
-      ** loading
-      ** resolved
-      ** error
-  */
-
-  componentDidMount() {
-    this.setState({searchQuery: ''})
-  }
-
+  
   handleFormSubmit = query => {
     this.setState({ searchQuery: query })
   }

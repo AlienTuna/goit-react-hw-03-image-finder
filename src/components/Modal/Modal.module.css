@@ -15,10 +15,12 @@
     cursor: zoom-out;
 }
 .ModalImg {
-    height: 100%;
+    max-height: 100%;
     max-width: 100%;
     border: 1px dotted rgba(0, 0, 0, 0.911);
+    cursor: default;
 }
 .ModalImgContainer {
-    height: 95%
+    max-height: 95%;
+    max-width: 95%;
 }
