@@ -19,7 +19,9 @@ export class Modal extends Component {
     }
 
     handleOverlayClick = (e) => {
-        this.props.onCloseModal();
+        if (e.target === e.currentTarget) {
+            this.props.onCloseModal();
+        }
     }
 
     render() {
@@ -27,6 +29,7 @@ export class Modal extends Component {
 
         return (
             <div
+                title="Go back"
                 className={css.ModalOverlay}
                 onClick={this.handleOverlayClick}
             >
@@ -35,6 +38,7 @@ export class Modal extends Component {
                     className={css.ModalImg}
                         src={src}
                         alt={alt}
+                        title={alt}
                     />
                 </div>
             </div>)
