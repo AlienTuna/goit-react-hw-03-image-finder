@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 
 import css from './Searchbar.module.css';
 
+import PropTypes from 'prop-types';
+
 export default class Searchbar extends Component {
     state = {
         txt: ''
@@ -48,4 +50,8 @@ export default class Searchbar extends Component {
             </header>
         )
     }
+}
+
+Searchbar.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
 }

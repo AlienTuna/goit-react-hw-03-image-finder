@@ -9,6 +9,8 @@ import Loader from "components/Loader/Loader";
 import { Modal } from "components/Modal/Modal";
 
 import css from './ImageGallery.module.css';
+
+import PropTypes from 'prop-types';
 /* state-machine:
     ** idle
     ** loading
@@ -128,4 +130,8 @@ export default class ImageGallery extends Component {
             )
         }
     }
+}
+
+ImageGallery.propTypes = {
+    searchQuery: PropTypes.string.isRequired,
 }
